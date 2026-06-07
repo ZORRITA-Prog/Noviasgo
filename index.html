@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acta de Noviazgo</title>
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/wrBgV7B7/image-removebg-preview.png">
+    <link href="./Acta de Noviazgo_files/css2" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            background: #f5f0eb;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .creator-badge {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background: rgba(139, 69, 19, 0.9);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .document-container {
+            background: #fff;
+            border: 2px dashed #8B4513;
+            padding: 50px 60px;
+            max-width: 700px;
+            width: 100%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .document-container::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border: 1px solid #d4a574;
+            pointer-events: none;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 2.2em;
+            font-weight: 600;
+            color: #2c1810;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        .date-time {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            color: #3e2723;
+        }
+
+        .date-time .field-group {
+            display: inline-flex;
+            align-items: center;
+            margin: 0 10px;
+        }
+
+        .date-time label {
+            font-weight: 600;
+            margin-right: 5px;
+        }
+
+        .intro-text {
+            text-align: left;
+            margin-bottom: 30px;
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: #3e2723;
+        }
+
+        .intro-text .inline-field {
+            display: inline-block;
+            width: 200px;
+            border: none;
+            border-bottom: 1px solid #8B4513;
+            background: transparent;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1em;
+            color: #3e2723;
+            text-align: center;
+            padding: 2px 5px;
+            outline: none;
+        }
+
+        .intro-text .inline-field:focus {
+            border-bottom: 2px solid #8B4513;
+            background: rgba(139, 69, 19, 0.05);
+        }
+
+        .vow-section {
+            margin: 35px 0;
+            padding: 20px 0;
+            border-top: 1px solid #d4a574;
+        }
+
+        .vow-section:first-of-type {
+            border-top: none;
+        }
+
+        .vow-text {
+            font-size: 1.15em;
+            line-height: 1.9;
+            color: #3e2723;
+            text-align: justify;
+        }
+
+        .vow-text .name-field {
+            display: inline-block;
+            width: 250px;
+            border: none;
+            border-bottom: 1px solid #8B4513;
+            background: transparent;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1em;
+            color: #3e2723;
+            text-align: center;
+            padding: 2px 5px;
+            outline: none;
+            font-weight: 600;
+        }
+
+        .vow-text .name-field:focus {
+            border-bottom: 2px solid #8B4513;
+            background: rgba(139, 69, 19, 0.05);
+        }
+
+        .vow-text .name-field-long {
+            width: 300px;
+        }
+
+        .signatures {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 20px;
+        }
+
+        .signature-box {
+            text-align: center;
+            width: 45%;
+        }
+
+        .signature-line {
+            border-bottom: 1px solid #8B4513;
+            height: 40px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .signature-input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2em;
+            color: #3e2723;
+            text-align: center;
+            outline: none;
+            font-style: italic;
+        }
+
+        .signature-input:focus {
+            background: rgba(139, 69, 19, 0.05);
+        }
+
+        .signature-label {
+            font-size: 0.95em;
+            font-weight: 600;
+            color: #3e2723;
+        }
+
+        .witness-section {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            margin-top: 40px;
+            gap: 40px;
+        }
+
+        .witness-box {
+            text-align: center;
+        }
+
+        .paw-print {
+            font-size: 3em;
+            color: #3e2723;
+            margin-bottom: 5px;
+            opacity: 0.8;
+        }
+
+        .witness-line {
+            border-bottom: 1px solid #8B4513;
+            width: 150px;
+            height: 30px;
+            margin: 0 auto 5px;
+        }
+
+        .witness-label {
+            font-size: 0.95em;
+            font-weight: 600;
+            color: #3e2723;
+        }
+
+        .seal {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #8B4513;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7em;
+            text-align: center;
+            color: #8B4513;
+            line-height: 1.3;
+            opacity: 0.6;
+            transform: rotate(-15deg);
+        }
+
+        .seal-inner {
+            border: 1px solid #8B4513;
+            border-radius: 50%;
+            width: 85px;
+            height: 85px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #8B4513;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .print-btn:hover {
+            background: #6d3610;
+            transform: translateY(-2px);
+        }
+
+        @media print {
+            body {
+                background: #fff;
+                padding: 0;
+            }
+            .creator-badge, .print-btn {
+                display: none;
+            }
+            .document-container {
+                box-shadow: none;
+                border: 2px dashed #8B4513;
+                max-width: 100%;
+            }
+            input {
+                border-bottom: 1px solid #8B4513 !important;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .document-container {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 1.6em;
+            }
+            .intro-text .inline-field,
+            .vow-text .name-field,
+            .vow-text .name-field-long {
+                width: 150px;
+            }
+            .signatures {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .signature-box {
+                width: 100%;
+            }
+            .witness-section {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="creator-badge">Creador Zorrita &amp; Reyko</div>
+
+    <div class="document-container">
+        <h1>Acta de Noviazgo</h1>
+
+        <div class="date-time">
+            <div class="field-group">
+                <label>Fecha:</label>
+                <input type="text" class="inline-field" style="width: 180px;" placeholder="__/__/____">
+            </div>
+            <div class="field-group">
+                <label>Hora:</label>
+                <input type="text" class="inline-field" style="width: 100px;" placeholder="__:__">
+            </div>
+        </div>
+
+        <div class="intro-text">
+            Este día <input type="text" class="inline-field" placeholder="nombre de los novios"> en <input type="text" class="inline-field" placeholder="lugar"> se unirán en una relación con los siguientes votos dados.
+        </div>
+
+        <div class="vow-section">
+            <div class="vow-text">
+                Con esta mano yo: <input type="text" class="name-field name-field-long" placeholder="nombre de la novia">sostendré tus anhelos; tu plato nunca estará solo, pues yo compartiré tu hambre; con nuestra luz buscaremos juntos la salida cuando todo falle; y con este nudo en nuestras manos, te pido que:<br><br>
+                <input type="text" class="name-field name-field-long" placeholder="nombre del novio"> que seas mi novio.
+            </div>
+        </div>
+
+        <div class="vow-section">
+            <div class="vow-text">
+                Con esta mano yo: <input type="text" class="name-field name-field-long" placeholder="nombre del novio">sostendré tus anhelos; tu plato nunca estará solo, pues yo compartiré tu hambre; con nuestra luz buscaremos juntos la salida cuando todo falle; y con este nudo en nuestras manos, te pido que:<br><br>
+                <input type="text" class="name-field name-field-long" placeholder="nombre de la novia"> que seas mi novia.
+            </div>
+        </div>
+
+        <div class="signatures">
+            <div class="signature-box">
+                <div class="signature-line">
+                    <input type="text" class="signature-input" placeholder="Firma">
+                </div>
+                <div class="signature-label">Firma de la novia</div>
+            </div>
+            <div class="signature-box">
+                <div class="signature-line">
+                    <input type="text" class="signature-input" placeholder="Firma">
+                </div>
+                <div class="signature-label">Firma del novio</div>
+            </div>
+        </div>
+
+        <div class="witness-section">
+            <div class="witness-box">
+                <img src="https://static.vecteezy.com/system/resources/previews/004/819/905/non_2x/smeared-cat-footprint-paw-of-cat-after-dirty-street-on-clean-surface-symbol-of-tiger-walking-along-trail-and-panther-running-through-puddles-vector.jpg" jsaction="" class="sFlh5c FyHeAf iPVvYb" style="max-width: 280px; height: 127px; margin: 0px; width: 127px;" alt="oña" jsname="kn3ccd">
+                <div class="witness-line"></div>
+                <div class="witness-label">Testigo</div>
+            </div>
+            <div class="seal">
+                <div class="seal-inner">
+                    ESTADOS UNIDOS<br>MEXICANOS<br>REGISTRO CIVIL
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimir / Guardar PDF</button>
+
+</body></html>
