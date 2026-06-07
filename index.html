@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acta de Noviazgo</title>
     <link rel="icon" type="image/x-icon" href="https://i.ibb.co/wrBgV7B7/image-removebg-preview.png">
-    <link href="./Acta de Noviazgo_files/css2" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -257,6 +258,112 @@
             padding: 5px;
         }
 
+        /* ===== ZONA DE DONACIONES ===== */
+        .donation-section {
+            margin-top: 50px;
+            padding: 30px 25px;
+            border-top: 1px solid #d4a574;
+            border-bottom: 1px solid #d4a574;
+            text-align: center;
+            position: relative;
+        }
+
+        .donation-section::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border: 1px dashed #d4a574;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .donation-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3em;
+            color: #2c1810;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .donation-subtitle {
+            font-size: 1em;
+            color: #6d4c41;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .donation-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .donation-qr {
+            width: 140px;
+            height: 140px;
+            border: 2px solid #8B4513;
+            border-radius: 8px;
+            padding: 5px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(139, 69, 19, 0.15);
+        }
+
+        .donation-qr img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .donation-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .donation-link a {
+            display: inline-block;
+            background: #8B4513;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(139, 69, 19, 0.3);
+        }
+
+        .donation-link a:hover {
+            background: #6d3610;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4);
+        }
+
+        .donation-link span {
+            font-size: 0.9em;
+            color: #6d4c41;
+            font-style: italic;
+        }
+
+        .donation-heart {
+            font-size: 1.5em;
+            color: #8B4513;
+            opacity: 0.7;
+            margin-bottom: 10px;
+        }
+        /* ================================ */
+
         .print-btn {
             position: fixed;
             bottom: 20px;
@@ -294,6 +401,13 @@
             input {
                 border-bottom: 1px solid #8B4513 !important;
             }
+            .donation-section {
+                border-top: 1px solid #d4a574;
+                border-bottom: 1px solid #d4a574;
+            }
+            .donation-section::before {
+                border: 1px dashed #d4a574;
+            }
         }
 
         @media (max-width: 600px) {
@@ -319,8 +433,17 @@
                 flex-direction: column;
                 gap: 20px;
             }
+            .donation-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .donation-qr {
+                width: 120px;
+                height: 120px;
+            }
         }
     </style>
+<base target="_blank">
 </head>
 <body>
     <div class="creator-badge">Creador Zorrita &amp; Reyko</div>
@@ -384,8 +507,27 @@
                 </div>
             </div>
         </div>
+
+        <!-- ===== ZONA DE DONACIONES ===== -->
+        <div class="donation-section">
+            <div class="donation-heart">&#10084;</div>
+            <div class="donation-title">Apoya este proyecto</div>
+            <div class="donation-subtitle">Si te gustó el Acta de Noviazgo, considera hacer una donación</div>
+            <div class="donation-content">
+                <div class="donation-qr">
+                    <img src="https://i.ibb.co/vvfXY9F4/Whats-App-Image-2026-06-07-at-11-26-40-AM.jpg" alt="QR PayPal">
+                </div>
+                <div class="donation-link">
+                    <a href="https://paypal.me/ChizuGz" target="_blank">Donar vía PayPal</a>
+                    <span>paypal.me/ChizuGz</span>
+                </div>
+            </div>
+        </div>
+        <!-- ================================ -->
+
     </div>
 
-    <button class="print-btn" onclick="window.print()">🖨️ Imprimir / Guardar PDF</button>
+    <button class="print-btn" onclick="window.print()">&#128424; Imprimir / Guardar PDF</button>
 
-</body></html>
+</body>
+</html>
